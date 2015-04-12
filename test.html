@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style type="text/css">
+      html, body, #map-canvas { height: 100%; margin: 0; padding: 0;}
+    </style>
+    <script type="text/javascript"
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAoAfOoKexM41mWeh6De8UHmk8BYajczlA">
+    </script>
+       <link rel="import" href="https://www.polymer-project.org/0.5/components/paper-ripple/paper-ripple.html">
+  <link rel="import" href="http://www.polymer-project.org/components/core-icons/core-icons.html">
+  <link rel="import" href="http://www.polymer-project.org/components/font-roboto/roboto.html">
+  
+    <style>
+    html, body, #map-canvas {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+}
+.custom-control-container {
+    margin: 5px;
+}
+.custom-control {
+    cursor: pointer;
+    direction: ltr;
+    overflow: hidden;
+    text-align: center;
+    position: relative;
+    color: rgb(0, 0, 0);
+      font-family: RobotoDraft, 'Helvetica Neue', Helvetica, Arial;
+    
+    -webkit-user-select: none;
+    font-size: 18px !important;
+    padding: 1px 6px;
+    border-bottom-left-radius: 2px;
+    border-top-left-radius: 2px;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    border: 1px solid rgba(0, 0, 0, 0.14902);
+    -webkit-box-shadow: rgba(0, 0, 0, 0.298039) 0px 1px 4px -1px;
+    min-height: 200px;
+    font-weight: 500;
+
+          display: inline-block;
+      width: 220px;
+      background-color: #fff;
+      box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2);
+}
+
+.custom-control:hover {
+    font-weight: 900 !important;
+}
+    .itembutton {
+      position: relative;
+      height: 48px;
+      line-height: 48px;
+      color: #646464;
+      font-size: 14px;
+    }
+            .itembutton-blue {
+      position: relative;
+      height: 48px;
+      line-height: 48px;
+      background-color: #4285f4;
+      font-size: 14px;
+      color: white;
+    }
+    </style>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+  <script>
+  $(function() {
+    $('a[href*=#]:not([href=#])').click(function() {
+      if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+
+        var target = $(this.hash);
+        target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+        if (target.length) {
+          $('html,body').animate({
+            scrollTop: target.offset().top
+          }, 1000);
+          return false;
+        }
+      }
+    });
+  });
+  </script>
+
+    <script type="text/javascript">
+
+     function initialize() {
+/*  var mapOptions = {
+    zoom: 4,
+    center: new google.maps.LatLng(32.0825746,-6.2951660)
+  }
+  var map = new google.maps.Map(document.getElementById('map-canvas'),
+                                mapOptions);
+
+     */    
+
+
+$.getJSON("json.php", function(locations) {
+    console.log(locations); // this will show the info it in firebug console
+    console.log("test");
+        var map = new google.maps.Map(document.getElementById('map-canvas'), {
+      zoom: 6,
+    center: new google.maps.LatLng(32.0825746,-6.2951660)
+      //mapTypeId: google.maps.MapTypeId.ROADMAP
+    }),homeControlDiv = document.createElement( 'div' ),
+    HomeControl = function ( controlDiv, map ) {
+        controlDiv.className = "gmnoprint custom-control-container";
+
+        var controlUIContainer = document.createElement( 'div' ),
+            controlUI = document.createElement( 'div' );
+
+        controlUIContainer.className = "gm-style-mtc";
+        controlDiv.appendChild( controlUIContainer );
+
+        controlUI.className = "custom-control";
+        controlUI.title = 'Click to set the map to Home';
+        controlUI.innerHTML = "<div class=\"menubutton\"><div class=\"itembutton\"><div fit><img src=\"icon1.png\"height=22 width=22/>&nbsp;&nbsp;DRINKABLEWATER</div><div><paper-ripple fit></paper-ripple><br><div class=\"itembutton\"><div fit><img src=\"icon3.png\"height=22 width=22/>&nbsp;&nbsp;FOR WASHING ONLY</div><div><paper-ripple fit></paper-ripple><br><div class=\"itembutton\"><div fit><img src=\"icon2.png\"height=22 width=22/>&nbsp;&nbsp;WASTE WATER&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div><div><paper-ripple fit></paper-ripple><br><div class=\"itembutton-blue\"><div fit>&nbsp;&nbsp;&nbsp;MARK NEW LOCATION</div><div><paper-ripple fit></paper-ripple><div>";
+        controlUIContainer.appendChild( controlUI );
+
+        google.maps.event.addDomListener( controlUI, 'click', function() {
+    window.location.assign("mp-index.html#form1");
+        } );
+    }
+
+var homeControl = new HomeControl( homeControlDiv, map );
+
+homeControlDiv.index = 1;
+map.controls[ google.maps.ControlPosition.TOP_RIGHT ]
+    .push( homeControlDiv );
+
+
+    var infowindow = new google.maps.InfoWindow(
+                       { maxWidth: 200}
+      );
+
+    var marker, i;
+
+    for (i = 0; i < locations.length; i++) {  
+      marker = new google.maps.Marker({
+        position: new google.maps.LatLng(locations[i][0], locations[i][1]),
+        icon: 'icon'+locations[i][3]+'.png',
+        map: map
+      });
+
+      google.maps.event.addListener(marker, 'click', (function(marker, i) {
+        return function() {
+          infowindow.setContent(locations[i][2]);
+          infowindow.open(map, marker);
+        }
+      })(marker, i));
+    }
+
+
+            });/*close get*/   
+         
+         
+     
+         
+         
+         
+         
+         
+         
+ 
+                   
+   
+         
+
+         
+         
+         
+         
+         
+
+         
+         
+         
+         
+
+         
+
+         
+}
+
+google.maps.event.addDomListener(window, 'load', initialize)
+      </script>
+  </head>
+  <body>
+<div id="map-canvas"></div>
+<div id="test" style="min-width:200px;min-height:3000px;background-color:red;">test</div>
+  </body>
+</html>

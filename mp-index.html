@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>WaterMapping - Nasa Space Apps Challege</title>
+        <meta name="description" content="">
+        <meta name="keywords" content="">
+        <meta charset="utf-8">
+        <meta name="author" content="Roman Kirichik">
+        <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+        
+        <!-- Favicons -->
+        <link rel="shortcut icon" href="images/favicon.png">
+        <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+        
+        <!-- CSS -->
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/style-responsive.css">
+        <link rel="stylesheet" href="css/animate.min.css">
+        <link rel="stylesheet" href="css/vertical-rhythm.min.css">
+        <link rel="stylesheet" href="css/owl.carousel.css">
+        <link rel="stylesheet" href="css/magnific-popup.css"> 
+               <link rel="import" href="https://www.polymer-project.org/0.5/components/paper-ripple/paper-ripple.html">
+  <link rel="import" href="http://www.polymer-project.org/components/core-icons/core-icons.html">
+  <link rel="import" href="http://www.polymer-project.org/components/font-roboto/roboto.html">
+  <style>
+  #map-canvas {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+}
+.custom-control-container {
+    margin: 5px;
+}
+.custom-control {
+    cursor: pointer;
+    direction: ltr;
+    overflow: hidden;
+    text-align: center;
+    position: relative;
+    color: rgb(0, 0, 0);
+      font-family: RobotoDraft, 'Helvetica Neue', Helvetica, Arial;
+    
+    -webkit-user-select: none;
+    font-size: 18px !important;
+    padding: 1px 6px;
+    border-bottom-left-radius: 2px;
+    border-top-left-radius: 2px;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    border: 1px solid rgba(0, 0, 0, 0.14902);
+    -webkit-box-shadow: rgba(0, 0, 0, 0.298039) 0px 1px 4px -1px;
+    min-height: 200px;
+    font-weight: 500;
+
+          display: inline-block;
+      width: 220px;
+      background-color: #fff;
+      box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2);
+}
+
+.custom-control:hover {
+    font-weight: 900 !important;
+}
+    .itembutton {
+      position: relative;
+      height: 48px;
+      line-height: 48px;
+      color: #646464;
+      font-size: 14px;
+    }
+            .itembutton-blue {
+      position: relative;
+      height: 48px;
+      line-height: 48px;
+      background-color: #4285f4;
+      font-size: 14px;
+      color: white;
+    }
+    </style>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+
+        <!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>Simple markers</title>
+    <style>
+      html, body{
+        height: 100%;
+        margin: 0px;
+        padding: 0px
+      }
+      #map2 {
+                margin: 0px;
+        padding: 0px;
+        height:400px;
+        width: 400px;
+
+      }
+    </style>
+      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAoAfOoKexM41mWeh6De8UHmk8BYajczlA"></script>
+    <script ></script>
+
+
+
+
+        
+    </head>
+    <body class="appear-animate">
+        
+        <!-- Page Loader -->        
+        <div class="page-loader">
+            <div class="loader">Loading...</div>
+        </div>
+        <!-- End Page Loader -->
+        
+        <!-- Page Wrap -->
+        <div class="page" id="top">
+            
+            <!-- Home Section -->
+            <section class="home-section bg-dark-alfa-30 parallax-2" data-background="images/full-width-images/section-bg-1.jpg" id="home">
+                <div class="js-height-full">
+                    
+                    <!-- Hero Content -->
+                    <div class="home-content">
+                        <div class="home-text">
+                            
+                            <h1 class="hs-line-1 ">
+                                Share water
+                            </h1>
+                            <h1 class="hs-line-2 ">
+                                Share life.
+                            </h1>
+                            
+                            <div class="hs-line-6">
+                                Water mapping using crowdsourcing.
+
+                            </div>
+                                                        <div <br><br><br><button type="button" onclick="location.href = 'test.html';" class="btn btn-success">See map</button>
+
+                            
+                            
+                        </div>
+                    </div>
+                    <!-- End Hero Content -->
+                    
+                   
+                    
+                </div>
+            </section>
+            <!-- End Home Section -->
+            
+            <!-- Navigation panel -->
+            <nav class="main-nav dark transparent stick-fixed">
+                <div class="full-wrapper relative clearfix">
+                    
+                    <!-- Logo ( * your text or image into link tag *) -->
+                    <div class="nav-logo-wrap local-scroll">
+                        <a href="mp-index.html" class="logo">
+                            <img src="images/logo-white.png" width="118" height="27" alt="" />
+                        </a>
+                    </div>
+                    
+                    <div class="mobile-nav">
+                        <i class="fa fa-bars"></i>
+                    </div>
+                    
+                    <!-- Main Menu -->
+
+                    </div>
+                    <!-- End Main Menu -->
+                    
+                </div>
+            </nav>
+            <!-- End Navigation panel -->
+            
+                   
+            
+            <!-- Features Section -->
+            
+            <!-- End Features Section -->
+            <!-- Divider -->
+            <hr class="mt-0 mb-0"/>
+            <!-- End Divider -->
+            <section>
+                
+
+
+            </section>
+            <!-- Divider -->
+            <hr class="mt-0 mb-0"/>
+            <!-- End Divider -->
+            <!-- Features Section -->
+           <section class="page-section">
+                <div class="container relative" id="form1">
+                    
+                    <h2 class="section-title font-alt mb-70 mb-sm-40">
+                        Give us information about the water of your region
+                    </h2>
+                    
+                    <!-- Row -->
+                    <div class="row">
+                        
+                        <!-- Col -->
+                        
+                        <div class="col-sm-4 mb-40">
+                            
+                            <!-- Form -->
+                            <form method="post" action="send.php" id="form-5" role="form" class="form">
+                                
+                                <div class="mb-20 mb-md-10">
+                                <label>Name</label>
+                                    <!-- Name -->
+                                    <input type="text" name="name" id="name-4" class="form-control input-lg" placeholder="Name" maxlength="100">
+                                </div>
+                                
+                                <div class="mb-20 mb-md-10">
+                                <label>E-mail address</label>
+                                    <!-- Email -->
+                                    <input type="email" name="email" id="email-4" class="form-control input-lg" placeholder="Email" maxlength="100">
+                                </div>    
+                                
+                                
+
+                                                            
+                            <!-- End Form -->
+                            
+                        </div>
+                        
+                        <!-- End Col -->
+                        
+                        <!-- Col -->
+                        
+                        <div class="col-sm-4 mb-40">
+                            
+                            <!-- Form -->
+                                                            <div class="mb-20 mb-md-10">
+                                                            <label>On a scale from 1 to 10 rate the water availability in your location</label>
+                                    <select class="form-control input-lg" name="q1">
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                                                                <option>5</option>
+                                        <option>6</option>
+                                        <option>7</option>
+                                        <option>8</option>
+                                        <option>9</option>
+                                        <option>10</option>
+                                    </select>
+                                </div>
+                                           <div class="mb-20 mb-md-10">
+                                           <label>On a scale from one to 10 rate the water quality</label>
+                                    <select class="form-control input-lg" name="q2">
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                                                                <option>5</option>
+                                        <option>6</option>
+                                        <option>7</option>
+                                        <option>8</option>
+                                        <option>9</option>
+                                        <option>10</option>
+                                    </select>
+                                </div>
+                                        
+                            <!-- End Form -->
+                            
+                        </div>
+                        
+                        <!-- End Col -->
+                        
+                        <!-- Col -->
+                        
+                        <div class="col-sm-4 mb-40">
+                            
+                            <!-- Form -->
+   <div class="mb-20 mb-md-10">
+                                    <label>How long do the droughts last in terms of months ?</label>
+
+                                    <select class="form-control input-lg" name="q3">
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                                                                <option>5</option>
+                                        <option>6</option>
+                                        <option>7</option>
+                                        <option>8</option>
+                                        <option>9</option>
+                                        <option>10</option>
+                                    </select>
+                                </div>
+                                           <div class="mb-20 mb-md-10">
+                                           <label>How often do you have heavy percipitation events (never, rare, often, common ) ?</label>
+                                    <select class="form-control input-lg" name="q4">
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                                                                <option>5</option>
+                                        <option>6</option>
+                                        <option>7</option>
+                                        <option>8</option>
+                                        <option>9</option>
+                                        <option>10</option>
+                                    </select>
+                                </div>
+                                        
+                            <!-- End Form -->
+                            
+                        </div>
+                        
+                        <!-- End Col -->
+                            <div id="map2"></div>
+
+                        <div style="margin-left:40%;"><button type="submit" class="btn btn-success">Submit</button>
+                        <button type="button" class="btn btn-danger">Cancel</button>
+                            </form>
+
+                        </div>
+
+                    </div>
+                    <!-- End Row -->
+                    
+                </div>
+            </section>
+            <!-- End Section -->
+            
+
+
+            
+        
+            <!-- Foter -->
+            <footer class="page-section bg-gray-lighter footer pb-60">
+                <div class="container">
+                    
+                    <!-- Footer Logo -->
+                    <div class="local-scroll mb-30 wow fadeInUp" data-wow-duration="1.5s">
+                        <a href="#top"><img src="images/logo-footer.png" width="78" height="36" alt="" /></a>
+                    </div>
+                    <!-- End Footer Logo -->
+                    
+                   
+                    
+                    <!-- Footer Text -->
+                    <div class="footer-text">
+                        
+                        
+                        
+                        <div class="footer-made">
+                            Made with love for great people.
+                        </div>
+                        
+                    </div>
+                    <!-- End Footer Text --> 
+                    
+                 </div>
+                 
+                 
+                 <!-- Top Link -->
+                 <div class="local-scroll">
+                     <a href="#top" class="link-to-top"><i class="fa fa-caret-up"></i></a>
+                 </div>
+                 <!-- End Top Link -->
+                 
+            </footer>
+            <!-- End Foter -->
+        
+        
+        </div>
+        <!-- End Page Wrap -->
+        
+        
+        <!-- JS -->
+        <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+        <script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
+        <script type="text/javascript" src="js/bootstrap.min.js"></script>        
+        <script type="text/javascript" src="js/SmoothScroll.js"></script>
+        <script type="text/javascript" src="js/jquery.scrollTo.min.js"></script>
+        <script type="text/javascript" src="js/jquery.localScroll.min.js"></script>
+        <script type="text/javascript" src="js/jquery.viewport.mini.js"></script>
+        <script type="text/javascript" src="js/jquery.countTo.js"></script>
+        <script type="text/javascript" src="js/jquery.appear.js"></script>
+        <script type="text/javascript" src="js/jquery.sticky.js"></script>
+        <script type="text/javascript" src="js/jquery.parallax-1.1.3.js"></script>
+        <script type="text/javascript" src="js/jquery.fitvids.js"></script>
+        <script type="text/javascript" src="js/owl.carousel.min.js"></script>
+        <script type="text/javascript" src="js/isotope.pkgd.min.js"></script>
+        <script type="text/javascript" src="js/imagesloaded.pkgd.min.js"></script>
+        <script type="text/javascript" src="js/jquery.magnific-popup.min.js"></script>
+        <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&amp;language=en"></script>
+        <script type="text/javascript" src="js/gmap3.min.js"></script>
+        <script type="text/javascript" src="js/wow.min.js"></script>
+        <script type="text/javascript" src="js/masonry.pkgd.min.js"></script>
+        <script type="text/javascript" src="js/jquery.simple-text-rotator.min.js"></script>
+        <script type="text/javascript" src="js/all.js"></script>
+        <script type="text/javascript" src="js/contact-form.js"></script>        
+        <!--[if lt IE 10]><script type="text/javascript" src="js/placeholder.js"></script><![endif]-->
+        
+    </body>
+</html>
